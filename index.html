@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DK Appliance Repair</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <style>
+      /* Animated Background */
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+     
+
+body {
+    overflow-x: hidden;
+}
+
+      /* Hide scrollbar but allow scrolling */
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+
+      .scrollbar-hide {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      .animated-bg {
+        background: linear-gradient(45deg, #65657d, #16213e, #0f3460, #e94560);
+        background-size: 300% 300%;
+        animation: gradientAnimation 8s infinite alternate;
+      }
+
+      /* Glowing Text */
+      .glow-text {
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+      }
+
+      /* Modern Glass Navbar */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        transition: all 0.3s ease-in-out;
+      }
+
+      /* Navbar Links */
+      .navbar-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .navbar-links a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        padding: 8px 15px;
+        transition: 0.3s;
+      }
+
+      /* Hamburger Menu for Mobile */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+      }
+
+      .hamburger div {
+        width: 30px;
+        height: 3px;
+        background: white;
+        transition: 0.3s;
+      }
+
+      /* Responsive Navbar */
+      @media (max-width: 768px) {
+        .navbar-links {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          right: 20px;
+          background: rgba(0, 0, 0, 0.9);
+          padding: 10px;
+          border-radius: 10px;
+        }
+
+        .navbar-links.show {
+          display: flex;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+      }
+
+      /* Floating Buttons - Fix Overlapping Issue */
+      .floating-buttons {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px; /* Space between icons */
+        z-index: 1000; /* Ensure it stays above content */
+      }
+
+      .floating-buttons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        background-color: white;
+        border-radius: 50%;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease-in-out;
+      }
+
+      .floating-buttons a:hover {
+        transform: scale(1.1);
+      }
+
+      .floating-buttons img {
+        width: 35px;
+        height: 35px;
+      }
+
+      /* Media Queries for Responsive Buttons */
+      @media (max-width: 768px) {
+        .floating-buttons {
+          bottom: 15px; /* Move slightly up */
+          right: 15px; /* Adjust position */
+        }
+
+        .floating-buttons a {
+          width: 50px;
+          height: 50px;
+        }
+
+        .floating-buttons img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .floating-buttons {
+          bottom: 10px; /* Move up for smaller screens */
+          right: 10px;
+        }
+
+        .floating-buttons a {
+          width: 45px;
+          height: 45px;
+        }
+
+        .floating-buttons img {
+          width: 28px;
+          height: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-white">
+    <!-- Navbar -->
+    <nav class="navbar" data-aos="fade-down">
+      <div class="flex items-center">
+        <img src="assets/logo.png" class="h-[55px]" alt="DK Logo" />
+        <div class="text-xl font-bold ml-3 glow-text">DK Appliance Repair</div>
+      </div>
+      <div class="navbar-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#faq">FAQs</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="p-6 animated-bg w-full text-center mt-[70px]"
+      data-aos="fade-up"
+    >
+      <h2 class="text-4xl md:text-6xl font-bold text-yellow-400 glow-text">
+        DK Electronics and Electrical Repair
+      </h2>
+      <p class="mt-4 text-lg text-gray-200">
+        LED TVs, ACs, Washing Machines – Fixed by Professionals
+      </p>
+      <img
+        src="assets/hero.png"
+        class="mx-auto mt-6 rounded-lg shadow-lg w-full md:w-3/4"
+        alt="Appliance Repair"
+      />
+      <a
+        href="https://wa.me/918791446241"
+        class="mt-6 inline-block bg-yellow-400 text-black px-6 py-2 rounded-lg hover:bg-yellow-500 text-lg"
+        >Book a Repair</a
+      >
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="p-6 text-center">
+      <h2
+        class="text-3xl font-bold text-yellow-400 glow-text"
+        data-aos="fade-up"
+      >
+        Our Repair Services
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        <div class="bg-gray-800 rounded-lg shadow-lg p-4" data-aos="fade-right">
+          <img
+            src="assets/TV.png"
+            class="w-full h-40 md:h-48 object-cover rounded-t-lg"
+            alt="TV Repair"
+          />
+          <h3 class="text-xl font-semibold mt-4 text-yellow-400">
+            LED TV Repair
+          </h3>
+          <p class="mt-2 text-gray-300">
+            Fix display, sound, and motherboard issues.
+          </p>
+        </div>
+        <div class="bg-gray-800 rounded-lg shadow-lg p-4" data-aos="fade-up">
+          <img
+            src="assets/ac.png"
+            class="w-full h-40 md:h-48 object-cover rounded-t-lg"
+            alt="AC Repair"
+          />
+          <h3 class="text-xl font-semibold mt-4 text-yellow-400">AC Repair</h3>
+          <p class="mt-2 text-gray-300">
+            Cooling issues, gas refilling, and servicing.
+          </p>
+        </div>
+        <div class="bg-gray-800 rounded-lg shadow-lg p-4" data-aos="fade-left">
+          <img
+            src="assets/washingmachine.png"
+            class="w-full h-40 md:h-48 object-cover rounded-t-lg"
+            alt="Washing Machine Repair"
+          />
+          <h3 class="text-xl font-semibold mt-4 text-yellow-400">
+            Washing Machine Repair
+          </h3>
+          <p class="mt-2 text-gray-300">
+            Motor, drainage, and electrical repairs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  
+
+    <!-- Experience Section -->
+    <section id="experience" class="p-6 text-center mt-10" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-yellow-400 glow-text">
+        20 Years of Excellence in Appliance Repair
+      </h2>
+      <p class="mt-4 text-lg text-gray-200">
+        With two decades of expertise, we have successfully repaired thousands
+        of appliances, ensuring top-notch service and customer satisfaction.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        <div class="bg-gray-800 rounded-lg shadow-lg p-4" data-aos="fade-right">
+          <h3 class="text-xl font-semibold text-yellow-400">
+            20+ Years of Experience
+          </h3>
+          <p class="mt-2 text-gray-300">
+            Our skilled technicians have been providing expert repairs and
+            maintenance services for over two decades.
+          </p>
+        </div>
+        <div class="bg-gray-800 rounded-lg shadow-lg p-4" data-aos="fade-left">
+          <h3 class="text-xl font-semibold text-yellow-400">
+            Customer Satisfaction
+          </h3>
+          <p class="mt-2 text-gray-300">
+            With thousands of happy clients, we take pride in our high-quality
+            service and reliability.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="p-6 text-center mt-10" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-yellow-400 glow-text">
+        About DK Appliance Repair
+      </h2>
+      <div
+        class="flex flex-col md:flex-row items-center gap-6 mt-6 justify-center"
+      >
+        <img
+          src="assets/about.png"
+          class="w-full md:w-1/3 rounded-lg shadow-lg"
+          alt="About DK Appliance Repair"
+        />
+        <div class="text-left max-w-xl">
+          <p class="text-lg text-gray-200">
+            DK Appliance Repair has been a trusted name in the industry for over
+            20 years. We specialize in repairing LED TVs, ACs, washing machines,
+            and other home appliances with precision and expertise.
+          </p>
+          <p class="mt-4 text-gray-300">
+            Our team of certified technicians ensures quality service, fast
+            repairs, and customer satisfaction. Whether it's a minor fix or a
+            major overhaul, we guarantee the best solutions for your appliances.
+          </p>
+          <p class="mt-4 text-gray-300">
+            We take pride in our professionalism, affordability, and commitment
+            to excellence. Let us bring your appliances back to life!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section
+      id="why-choose-us"
+      class="p-6 text-center mt-10 overflow-hidden relative"
+      data-aos="fade-up"
+    >
+      <h2 class="text-3xl font-bold text-yellow-400 glow-text">
+        Why Choose Us?
+      </h2>
+      <p class="mt-4 text-lg text-gray-200">
+        We provide reliable, affordable, and high-quality appliance repair
+        services.
+      </p>
+
+      <!-- Scrollable Content -->
+      <div class="relative">
+        <div
+          id="scroll-container"
+          class="flex gap-6 mt-6 items-center overflow-x-auto scrollbar-hide w-full scroll-smooth"
+        >
+          <div
+            class="bg-gray-800 rounded-lg shadow-lg p-6 min-w-[300px] md:min-w-[400px]"
+            data-aos="fade-right"
+          >
+            <img
+              src="assets/expertise.png"
+              class="w-60 h-60 mx-auto mb-4"
+              alt="Expert Technicians"
+            />
+            <h3 class="text-2xl font-semibold text-yellow-400">
+              Expert Technicians
+            </h3>
+            <p class="mt-2 text-gray-300">
+              Our certified professionals ensure your appliances are in safe
+              hands.
+            </p>
+          </div>
+
+          <div
+            class="bg-gray-800 rounded-lg shadow-lg p-6 min-w-[300px] md:min-w-[400px]"
+            data-aos="fade-left"
+          >
+            <img
+              src="assets/fast-service.png"
+              class="w-60 h-60 mx-auto mb-4"
+              alt="Fast Service"
+            />
+            <h3 class="text-2xl font-semibold text-yellow-400">
+              Fast & Reliable Service
+            </h3>
+            <p class="mt-2 text-gray-300">
+              Quick response and efficient repair services to minimize downtime.
+            </p>
+          </div>
+
+          <div
+            class="bg-gray-800 rounded-lg shadow-lg p-6 min-w-[300px] md:min-w-[400px]"
+            data-aos="fade-right"
+          >
+            <img
+              src="assets/affordable.png"
+              class="w-60 h-60 mx-auto mb-4"
+              alt="Affordable Pricing"
+            />
+            <h3 class="text-2xl font-semibold text-yellow-400">
+              Affordable Pricing
+            </h3>
+            <p class="mt-2 text-gray-300">
+              We offer competitive pricing without compromising quality.
+            </p>
+          </div>
+
+          <div
+            class="bg-gray-800 rounded-lg shadow-lg p-6 min-w-[300px] md:min-w-[400px]"
+            data-aos="fade-left"
+          >
+            <img
+              src="assets/warranty.png"
+              class="w-60 h-60 mx-auto mb-4"
+              alt="Warranty Support"
+            />
+            <h3 class="text-2xl font-semibold text-yellow-400">
+              Warranty Support
+            </h3>
+            <p class="mt-2 text-gray-300">
+              Enjoy peace of mind with our post-repair warranty services.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <!-- Scrollable Reviews -->
+      <div
+        id="review-container"
+        class="flex gap-6 mt-6 items-center overflow-x-auto scrollbar-hide overflow-hidden w-full scroll-smooth"
+      >
+        <div
+          class="bg-gray-800 rounded-lg shadow-lg p-6 min-w-[300px] md:min-w-[400px]"
+        >
+          <p class="text-gray-300 italic">
+            "Mere fridge repair ke liye best service mili! Technician bahut
+            knowledgeable the. Highly recommend!"
+          </p>
+          <h4 class="text-xl font-semibold text-yellow-400 mt-4">
+            - Rajesh Sharma, Delhi
+          </h4>
+        </div>
+
+        <div
+          class="bg-gray-800 rounded-lg shadow-lg p-6 min-w-[300px] md:min-w-[400px]"
+        >
+          <p class="text-gray-300 italic">
+            "Bahut fast service thi! AC repair sirf ek din me ho gaya. Bohot
+            shukriya!"
+          </p>
+          <h4 class="text-xl font-semibold text-yellow-400 mt-4">
+            - Priya Verma, Mumbai
+          </h4>
+        </div>
+
+        <div
+          class="bg-gray-800 rounded-lg shadow-lg p-6 min-w-[300px] md:min-w-[400px]"
+        >
+          <p class="text-gray-300 italic">
+            "Affordable price aur great customer support! Mere washing machine
+            ka issue jaldi solve ho gaya."
+          </p>
+          <h4 class="text-xl font-semibold text-yellow-400 mt-4">
+            - Amit Gupta, Bangalore
+          </h4>
+        </div>
+
+        <div
+          class="bg-gray-800 rounded-lg shadow-lg p-6 min-w-[300px] md:min-w-[400px]"
+        >
+          <p class="text-gray-300 italic">
+            "Bohot friendly technician aur time pe service mili! Bilkul
+            recommend karunga."
+          </p>
+          <h4 class="text-xl font-semibold text-yellow-400 mt-4">
+            - Neha Sharma, Kolkata
+          </h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="p-6 text-center mt-10" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-yellow-400 glow-text">
+        Frequently Asked Questions
+      </h2>
+      <p class="mt-4 text-lg text-gray-200">
+        Find answers to common questions about our services.
+      </p>
+
+      <div class="mt-6 text-left max-w-3xl mx-auto">
+        <div
+          class="bg-gray-800 rounded-lg shadow-lg p-4 mb-4"
+          data-aos="fade-right"
+        >
+          <h3 class="text-xl font-semibold text-yellow-400">
+            1. What appliances do you repair?
+          </h3>
+          <p class="mt-2 text-gray-300">
+            We specialize in repairing LED TVs, air conditioners, washing
+            machines, refrigerators, and other home appliances.
+          </p>
+        </div>
+
+        <div
+          class="bg-gray-800 rounded-lg shadow-lg p-4 mb-4"
+          data-aos="fade-left"
+        >
+          <h3 class="text-xl font-semibold text-yellow-400">
+            2. How long does a typical repair take?
+          </h3>
+          <p class="mt-2 text-gray-300">
+            The duration depends on the complexity of the issue. Most repairs
+            are completed within 24 to 48 hours.
+          </p>
+        </div>
+
+        <div
+          class="bg-gray-800 rounded-lg shadow-lg p-4 mb-4"
+          data-aos="fade-right"
+        >
+          <h3 class="text-xl font-semibold text-yellow-400">
+            3. Do you offer home service repairs?
+          </h3>
+          <p class="mt-2 text-gray-300">
+            Yes! We provide doorstep repair services to ensure convenience and
+            comfort for our customers.
+          </p>
+        </div>
+
+        <div
+          class="bg-gray-800 rounded-lg shadow-lg p-4 mb-4"
+          data-aos="fade-left"
+        >
+          <h3 class="text-xl font-semibold text-yellow-400">
+            4. What are your service charges?
+          </h3>
+          <p class="mt-2 text-gray-300">
+            Our service charges vary based on the type of repair. Contact us for
+            a free quote.
+          </p>
+        </div>
+
+        <div
+          class="bg-gray-800 rounded-lg shadow-lg p-4 mb-4"
+          data-aos="fade-right"
+        >
+          <h3 class="text-xl font-semibold text-yellow-400">
+            5. Do you provide any warranty on repairs?
+          </h3>
+          <p class="mt-2 text-gray-300">
+            Yes, we offer a limited warranty on our repairs, depending on the
+            type of service performed.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact" class="bg-gray-800 py-10 px-6 text-white">
+      <div
+        class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center md:text-left"
+      >
+        <!-- Contact Info -->
+        <div>
+          <h3 class="text-lg font-semibold">Contact Us</h3>
+          <p class="mt-2 flex justify-center md:justify-start items-center">
+            <span class="mr-2">📍</span> Shop no-34, Shri Krishna Residency,
+            Maganhatai, Agra, Uttar Pradesh 283105
+          </p>
+          <p class="mt-2 flex justify-center md:justify-start items-center">
+            <span class="mr-2">📧</span>
+            Email:
+            <a
+              href="mailto:rudraelectronicssaleandservice@gmail.com"
+              class="text-blue-400"
+              >mayank6397261660@gmail.com</a
+            >
+          </p>
+          <p class="mt-2 flex justify-center md:justify-start items-center">
+            <span class="mr-2">📞</span>
+            Call:
+            <a href="tel:+918791446241" class="text-blue-400">+918791446241</a>
+          </p>
+        </div>
+
+        <!-- Useful Links -->
+        <div>
+          <h3 class="text-lg font-semibold">Useful Links</h3>
+          <ul class="mt-2 space-y-1">
+            <li><a href="#" class="hover:text-blue-400">Home</a></li>
+            <li><a href="#" class="hover:text-blue-400">About Us</a></li>
+            <li><a href="#" class="hover:text-blue-400">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Our Services -->
+        <div>
+          <h3 class="text-lg font-semibold">Our Services</h3>
+          <ul class="mt-2 space-y-1">
+            <li>TV</li>
+            <li>AC</li>
+            <li>Washing Machine</li>
+            <li>Cooler</li>
+            <li>Refrigerator</li>
+            <li>Microwave</li>
+            <li>Juicer Mixer</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Section -->
+      <div class="mt-6 text-center text-sm border-t border-gray-700 pt-4">
+        © 2025 Rudra Electronics. All Rights Reserved.
+      </div>
+        Fixed WhatsApp & Call Buttons
+    <div class="floating-buttons">
+        <a href="https://wa.me/918791446241">
+          <img src="assets/icon/whatsapp.png" alt="WhatsApp" />
+        </a>
+        <a href="tel:+918791446241">
+          <img src="assets/icon/phone.png" alt="Call" />
+        </a>
+      </div>
+    </footer>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white text-center p-4 mt-10">
+      <p>&copy; 2025 DK Appliance Repair. All Rights Reserved.</p>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+      function toggleMenu() {
+        document.querySelector(".navbar-links").classList.toggle("show");
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        const container = document.getElementById("scroll-container");
+
+        function scrollLeft() {
+          container.scrollBy({
+            left: -container.clientWidth / 2,
+            behavior: "smooth",
+          });
+        }
+
+        function scrollRight() {
+          container.scrollBy({
+            left: container.clientWidth / 2,
+            behavior: "smooth",
+          });
+        }
+
+        window.scrollLeft = scrollLeft;
+        window.scrollRight = scrollRight;
+      });
+    </script>
+  </body>
+</html>
