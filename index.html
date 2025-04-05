@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>DK Appliance Repair</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
@@ -21,11 +22,12 @@
         }
       }
 
-     
-
-body {
-    overflow-x: hidden;
+      body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* To prevent horizontal scrolling */
 }
+
 
       /* Hide scrollbar but allow scrolling */
       .scrollbar-hide::-webkit-scrollbar {
@@ -148,6 +150,7 @@ body {
 
       /* Media Queries for Responsive Buttons */
       @media (max-width: 768px) {
+       
         .floating-buttons {
           bottom: 15px; /* Move slightly up */
           right: 15px; /* Adjust position */
@@ -165,6 +168,8 @@ body {
       }
 
       @media (max-width: 480px) {
+
+       
         .floating-buttons {
           bottom: 10px; /* Move up for smaller screens */
           right: 10px;
@@ -182,7 +187,7 @@ body {
       }
     </style>
   </head>
-  <body class="bg-gray-900 text-white">
+  <body class="bg-gray-900 text-white m-0 p-0">
     <!-- Navbar -->
     <nav class="navbar" data-aos="fade-down">
       <div class="flex items-center">
@@ -206,7 +211,7 @@ body {
     <!-- Hero Section -->
     <section
       id="home"
-      class="p-6 animated-bg w-full text-center mt-[70px]"
+      class="p-6 m-0 animated-bg text-center mt-[70px]"
       data-aos="fade-up"
     >
       <h2 class="text-4xl md:text-6xl font-bold text-yellow-400 glow-text">
@@ -592,36 +597,43 @@ body {
           </p>
         </div>
 
-        <!-- Useful Links -->
-        <div>
-          <h3 class="text-lg font-semibold">Useful Links</h3>
-          <ul class="mt-2 space-y-1">
-            <li><a href="#" class="hover:text-blue-400">Home</a></li>
-            <li><a href="#" class="hover:text-blue-400">About Us</a></li>
-            <li><a href="#" class="hover:text-blue-400">Contact Us</a></li>
-          </ul>
-        </div>
+<!-- Footer Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 bg-gray-900 text-white rounded-2xl shadow-lg">
+  
+  <!-- Useful Links -->
+  <div>
+    <h3 class="text-2xl font-bold mb-4 border-b-2 border-blue-500 inline-block">Useful Links</h3>
+    <ul class="space-y-3">
+      <li>
+        <a href="#" class="hover:text-blue-400 transition-all duration-300 ease-in-out hover:pl-2">Home</a>
+      </li>
+      <li>
+        <a href="#" class="hover:text-blue-400 transition-all duration-300 ease-in-out hover:pl-2">About Us</a>
+      </li>
+      <li>
+        <a href="#" class="hover:text-blue-400 transition-all duration-300 ease-in-out hover:pl-2">Contact Us</a>
+      </li>
+    </ul>
+  </div>
 
-        <!-- Our Services -->
-        <div>
-          <h3 class="text-lg font-semibold">Our Services</h3>
-          <ul class="mt-2 space-y-1">
-            <li>TV</li>
-            <li>AC</li>
-            <li>Washing Machine</li>
-            <li>Cooler</li>
-            <li>Refrigerator</li>
-            <li>Microwave</li>
-            <li>Juicer Mixer</li>
-          </ul>
-        </div>
-      </div>
+  <!-- Our Services -->
+  <div>
+    <h3 class="text-2xl font-bold mb-4 border-b-2 border-green-500 inline-block">Our Services</h3>
+    <ul class="space-y-3">
+      <li class="hover:text-green-400 transition-all duration-300 ease-in-out hover:pl-2">TV</li>
+      <li class="hover:text-green-400 transition-all duration-300 ease-in-out hover:pl-2">AC</li>
+      <li class="hover:text-green-400 transition-all duration-300 ease-in-out hover:pl-2">Washing Machine</li>
+      <li class="hover:text-green-400 transition-all duration-300 ease-in-out hover:pl-2">Cooler</li>
+      <li class="hover:text-green-400 transition-all duration-300 ease-in-out hover:pl-2">Refrigerator</li>
+      <li class="hover:text-green-400 transition-all duration-300 ease-in-out hover:pl-2">Microwave</li>
+      <li class="hover:text-green-400 transition-all duration-300 ease-in-out hover:pl-2">Juicer Mixer</li>
+    </ul>
+  </div>
 
-      <!-- Bottom Section -->
-      <div class="mt-6 text-center text-sm border-t border-gray-700 pt-4">
-        © 2025 Rudra Electronics. All Rights Reserved.
-      </div>
-        Fixed WhatsApp & Call Buttons
+</div>
+
+
+      
     <div class="floating-buttons">
         <a href="https://wa.me/918791446241">
           <img src="assets/icon/whatsapp.png" alt="WhatsApp" />
@@ -630,10 +642,6 @@ body {
           <img src="assets/icon/phone.png" alt="Call" />
         </a>
       </div>
-    </footer>
-
-    <!-- Footer -->
-    <footer class="bg-black text-white text-center p-4 mt-10">
       <p>&copy; 2025 DK Appliance Repair. All Rights Reserved.</p>
     </footer>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
